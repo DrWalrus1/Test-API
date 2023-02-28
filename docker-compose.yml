@@ -1,0 +1,10 @@
+version: '2.5'
+services:
+  test_api:
+    image: lukelynch/test_api
+    container_name: test_api
+    environment:
+      - TZ=Australia/Melbourne
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
