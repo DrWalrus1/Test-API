@@ -5,8 +5,10 @@ const success = require('./routes/success.js')
 const clientError = require('./routes/client_error.js')
 
 // Constants
-const PORT = 8080;
-const HOST = '0.0.0.0';
+const PORT = process.env.port || 8080;
+const HOST = process.env.hostname || '0.0.0.0';
+
+// console.log(process.env.hostnam);
 
 // App
 const app = express();
