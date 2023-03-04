@@ -6,13 +6,20 @@ router.use((req, res, next) => {
     next()
 })
 
-router.get('/:statusCode', (req, res) => {
+router.get('/:statusCode', successRequest)
+
+/**
+ * @param {express.Request} req 
+ * @param {express.Response} res 
+ */
+function successRequest (req, res) {
     let status = Number(req.params.statusCode);
     if (status < 200 || status > 299) {
         res.status(400).json({ "status": 400, message: "success status code out of range." });
         return;
     }
     res.status(status).json({ "status": status, message: "This is a successful request!"});
-})
+}
+
 
 module.exports = router
